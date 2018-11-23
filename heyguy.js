@@ -25,27 +25,26 @@ ${ 이보게 }, ${ 사전 }.
 	` ); 
 
 function 이보게젊은이( 널널한공간, 받아적어, ... 거시기 ) { return 받아적어( ... 거시기 ); } 
-function 있는대로만( { raw }, ... ar ) { let printIndex = -1; return { toString : q => 
+function 있는대로만( { raw }, ... ar ) { 
+let printIndex = -1; return { toString : q => 
 	String .raw( { raw }, ( 
 		  printIndex += 1
 		, ar .map( a => a[ printIndex ] || '' ) 
 		) ) 
 	}; } 
-function ttoraw( n, t, regv, regF ) { 
+function ttoraw( t, regv, regF ) { 
 	let raw = [], ar = []; 
-	console.log(t);
 	t .replace( regv, regF( raw, ar ) ); 
 	let rpop = raw .pop(); 
 	raw .raw = raw; 
-	typeof rpop === 'string' ? raw .push( rpop, '' ) 
-		: ( 
-		  raw .length -= n  // erase finish match 
-		, ar .length = raw .length - 1  // final match, finish match 
-		);  
+	raw .push( rpop ); 
+	rpop ? raw .push( '' ) 
+		: ar .length = raw .length - 1  // final match, finish match 
+		;  
 	return [ raw, ... ar ]; 
 	} 
 function 글자로뽑기( t ) { 
-	return 있는대로만( ... ttoraw( 1, t 
+	return 있는대로만( ... ttoraw( t 
 		, /([^[]*)(\[([^\]]*?)\])?/g 
 		, ( raw, ar ) => ( all, rawv, arv, arvv ) => ( 
 			  raw .push( rawv ) 
@@ -54,15 +53,14 @@ function 글자로뽑기( t ) {
 		) ); 
 	} 
 function 범위로뽑기( t ) { 
-	let [ raw, ... ar ] = ttoraw( 0, t 
+	let [ raw, ... ar ] = ttoraw( t 
 		, /\s*([^{]*?)\s*(\{([^}]*?)\})/g 
 		, ( raw, ar ) => ( all, rawv, arv, arvv ) => ( 
 			  raw .push( rawv ) 
 			, ar .push( arv && arvv ) 
 			) 
 		); 
-	console .log( raw, ar ); 
-	return String .raw( raw, ... ar ); 
+	return Object .assign( ... ar .map( ( t, p ) => ({ [ raw[ p ] ] : 글자로뽑기( t ) }) ) ); 
 	} 
 
 // idea from https://twitter.com/Ranol__/status/1065972494060871680 
