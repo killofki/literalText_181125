@@ -24,7 +24,7 @@ ${ 이보게 }, ${ 사전 }.
 
 	` ); 
 
-function 이보게젊은이( 널널한공간, 이보게, ... 거시기 ) { return 이보게( ... 거시기 ); } 
+function 이보게젊은이( 널널한공간, 받아적어, ... 거시기 ) { return 받아적어( ... 거시기 ); } 
 function 있는대로만( { raw }, ... ar ) { let printIndex = -1; return { toString : q => 
 	String .raw( { raw }, ( 
 		  printIndex += 1
