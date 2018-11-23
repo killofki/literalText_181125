@@ -13,14 +13,14 @@ ${ 이보게 }, ${ 사전 }.
 
 }
 
-*이보게* ${ 있는대로만 `${ [ '이보게 ' ] }젊은이` } 
-*그것이* ${ 있는대로만 `${ [ '요즘 ' ] }유행하는 셈틀 선물거래 응용프로그램` } 
-*무엇인지* ${ 있는대로만 `${ [ '무엇인지', '알려줄 수 있겠나', '말일세' ] }` } 
-*네* ${ 있는대로만 `${ [ '네', '말씀하시는거죠' ] }` } 
-*사전* ${ '사전을 뒤진다' } 
-*이거* ${ 'desktop version futures trading application' } 
-*무슨* ${ 있는대로만 `${ [ '무슨 말을 하는겐가', '모르겠네만' ] }` } 
-*그거* ${ '꼬부랑말' } 
+이보게 ${ 있는대로만 `${ [ '이보게 ' ] }젊은이` } 
+그것이 ${ 있는대로만 `${ [ '요즘 ' ] }유행하는 셈틀 선물거래 응용프로그램` } 
+무엇인지 ${ 있는대로만 `${ [ '무엇인지', '알려줄 수 있겠나', '말일세' ] }` } 
+네 ${ 있는대로만 `${ [ '네', '말씀하시는거죠' ] }` } 
+사전 ${ '사전을 뒤진다' } 
+이거 ${ 'desktop version futures trading application' } 
+무슨 ${ 있는대로만 `${ [ '무슨 말을 하는겐가', '모르겠네만' ] }` } 
+그거 ${ '꼬부랑말' } 
 
 	` ); 
 
@@ -31,16 +31,38 @@ function 있는대로만( { raw }, ... ar ) { let printIndex = -1; return { toSt
 		, ar .map( a => a[ printIndex ] || '' ) 
 		) ) 
 	}; } 
-function 글자로뽑기( t ) { 
+function ttoraw( n, t, regv, regF ) { 
 	let raw = [], ar = []; 
-	t .replace( /([^[]*)(\[([^\]]*?)\])?/g, ( all, rawv, arv, arvv ) => ( 
-		  raw .push( rawv ) 
-		, ar .push( arv && arvv ) 
-		) ); 
-	raw .length -= 1; // erase finish match 
+	console.log(t);
+	t .replace( regv, regF( raw, ar ) ); 
+	let rpop = raw .pop(); 
 	raw .raw = raw; 
-	ar .length = raw .length - 1; // final match, finish match 
-	return 있는대로만( raw, ... ar ); 
+	typeof rpop === 'string' ? raw .push( rpop, '' ) 
+		: ( 
+		  raw .length -= n  // erase finish match 
+		, ar .length = raw .length - 1  // final match, finish match 
+		);  
+	return [ raw, ... ar ]; 
+	} 
+function 글자로뽑기( t ) { 
+	return 있는대로만( ... ttoraw( 1, t 
+		, /([^[]*)(\[([^\]]*?)\])?/g 
+		, ( raw, ar ) => ( all, rawv, arv, arvv ) => ( 
+			  raw .push( rawv ) 
+			, ar .push( arv && arvv ) 
+			) 
+		) ); 
+	} 
+function 범위로뽑기( t ) { 
+	let [ raw, ... ar ] = ttoraw( 0, t 
+		, /\s*([^{]*?)\s*(\{([^}]*?)\})/g 
+		, ( raw, ar ) => ( all, rawv, arv, arvv ) => ( 
+			  raw .push( rawv ) 
+			, ar .push( arv && arvv ) 
+			) 
+		); 
+	console .log( raw, ar ); 
+	return String .raw( raw, ... ar ); 
 	} 
 
 // idea from https://twitter.com/Ranol__/status/1065972494060871680 
