@@ -19,6 +19,7 @@ ${ 이보게 }, ${ 사전 }.
 그거 { 꼬부랑말 } 
 
 	` ); 
+// idea from https://twitter.com/Ranol__/status/1065972494060871680 
 
 function 이보게젊은이( 널널한공간, 받아적어, ... 거시기 ) { 
 	return 받아적어( Object .assign( ... 널널한공간 .map( t => 범위로뽑기( t ) ) ), ... 거시기 ); 
@@ -65,5 +66,3 @@ function 범위로뽑기( t ) {
 			) 
 		: {}; 
 	} 
-
-// idea from https://twitter.com/Ranol__/status/1065972494060871680 
