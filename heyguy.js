@@ -31,5 +31,16 @@ function 있는대로만( { raw }, ... ar ) { let printIndex = -1; return { toSt
 		, ar .map( a => a[ printIndex ] || '' ) 
 		) ) 
 	}; } 
+function 글자로뽑기( t ) { 
+	let raw = [], ar = []; 
+	t .replace( /([^[]*)(\[([^\]]*?)\])?/g, ( all, rawv, arv, arvv ) => ( 
+		  raw .push( rawv ) 
+		, ar .push( arv && arvv ) 
+		) ); 
+	raw .length -= 1; // erase finish match 
+	raw .raw = raw; 
+	ar .length = raw .length - 1; // final match, finish match 
+	return 있는대로만( raw, ... ar ); 
+	} 
 
 // idea from https://twitter.com/Ranol__/status/1065972494060871680 
