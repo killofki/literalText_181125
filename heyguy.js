@@ -56,7 +56,7 @@ function 대충( raw, ... ar ) {
 				, /([\s\S]*?)(\{\s*([\s\S]+?)\s*\}|$)/g 
 				, ( raw, ar ) => ( all, rawv, arv, arvv ) => ( 
 					  raw .push( rawv ) 
-					, ar .push( arv ? 받아왔어요[ arvv ] || `"${ arvv }"` : '' ) 
+					, ar .push( arv ? 받아왔어요[ arvv ] || `{${ arvv }}` : '' ) 
 					) 
 				) 
 			; 
