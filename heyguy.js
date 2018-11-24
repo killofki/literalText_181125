@@ -1,4 +1,4 @@
-var { 이보게젊은이, 대략 } = initConst(); 
+var { 이보게젊은이, 대략, 대충 } = initConst(); 
 
 console .log( 이보게젊은이 `
 
@@ -31,7 +31,7 @@ ${ 이보게 }, ${ 사전 }.
 
 function initConst() { 
 /////
-	return { 이보게젊은이, 대략 }; 
+	return { 이보게젊은이, 대략, 대충 }; 
 
 // functions.. 
 var 받아왔어요; 
@@ -47,6 +47,27 @@ function 이보게젊은이( 널널한공간, 받아적어, ... 거시기 ) {
 	} 
 function 대략( ... ar ) { 
 	return 글자로뽑기( String .raw( ... ar ) ) 
+	} 
+function 대충( raw, ... ar ) { 
+	var rawa = [], ara = []; 
+	raw .forEach( ( v, p ) => { 
+		let 
+			[ ra, ... aa ] = ttoraw( v 
+				, /([\s\S]*?)(\{\s*([\s\S]+?)\s*\}|$)/g 
+				, ( raw, ar ) => ( all, rawv, arv, arvv ) => ( 
+					  raw .push( rawv ) 
+					, ar .push( arv ? 받아왔어요[ arvv ] || `"${ arvv }"` : '' ) 
+					) 
+				) 
+			; 
+		console .log( ra, aa ); 
+		rawa .push( ... ra, '' ); 
+		ara .push( ... aa, ar[ p ] ); 
+		} ) 
+		; 
+	ara .pop(); 
+	rawa .raw = rawa; 
+	return String .raw( rawa, ... ara ); 
 	} 
 function 있는대로만( { raw }, ... ar ) { let printIndex = -1; return { 
 	  toString : q => 
