@@ -29,9 +29,9 @@ var 받아왔어요;
 function 이보게젊은이( 널널한공간, 받아적어, ... 거시기 ) { 
 	let 남은값 = [], [ 시작값 ] = 남은값; 
 	Object .assign( 받아왔어요 = 받아왔어요 || {}, ... 널널한공간 .map( t => 범위로뽑기( t, 남은값 ) ) ); 
-	시작값 && Object .assign( 받아왔어요, { [ 시작값 ] : 받아적어 } ); 
+	시작값 && Object .assign( 받아왔어요, { [ 시작값 ] : 받아적어 } ); // remain original function 
 	Object .assign( 받아왔어요, ... 거시기 .map( ( v, i ) => 
-		({ [ 남은값[ i + 1 ] ] : v instanceof Function ? v( 받아왔어요 ) : v }) 
+		({ [ 남은값[ i + 1 ] ] : v instanceof Function ? v( 받아왔어요 ) : v }) // extract one time 
 		) ); 
 	return ( 시작값 ? 받아왔어요[ 시작값 ] : 받아적어 )( 받아왔어요 ); 
 	} 
