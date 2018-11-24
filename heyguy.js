@@ -71,8 +71,6 @@ function 대충( raw, ... ar ) {
 		; 
 	ara .pop(); 
 	rawa .raw = rawa; 
-	console.log(raw,ar);
-	console.log(rawa,ara);
 	return String .raw( rawa, ... ara ); 
 	} 
 function 있는대로만( { raw }, ... ar ) { let printIndex = -1; return { 
