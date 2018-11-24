@@ -38,12 +38,13 @@ function 이보게젊은이( 널널한공간, 받아적어, ... 거시기 ) {
 function 대략( ... ar ) { 
 	return 글자로뽑기( String .raw( ... ar ) ) 
 	} 
-function 있는대로만( { raw }, ... ar ) { 
-	let printIndex = -1; return { toString : q => 
-	String .raw( { raw }, ( 
-		  printIndex += 1 
-		, ar .map( a => a && a[ printIndex ] || '' ) 
-		) ) 
+function 있는대로만( { raw }, ... ar ) { let printIndex = -1; return { 
+	  toString : q => 
+		String .raw( { raw }, ( 
+			  printIndex += 1 
+			, ar .map( a => a && a[ printIndex ] || '' ) 
+			) ) 
+	, source : [ { raw }, ... ar ] 
 	}; } 
 function ttoraw( t, regv, regF ) { 
 	let raw = [], ar = []; 
