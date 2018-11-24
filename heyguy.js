@@ -27,9 +27,6 @@ ${ 이보게 }, ${ 사전 }.
 // idea from https://twitter.com/Ranol__/status/1065972494060871680 
 
 var 받아왔어요; 
-function ForV( o ) { 
-	return o instanceof Function ? o( 받아왔어요 ) : o; 
-	} 
 function 이보게젊은이( 널널한공간, 받아적어, ... 거시기 ) { 
 	let 남은값 = [], [ 시작값 ] = 남은값; 
 	Object .assign( 받아왔어요 = 받아왔어요 || {}, ... 널널한공간 .map( t => 범위로뽑기( t, 남은값 ) ) ); 
@@ -86,4 +83,7 @@ function 범위로뽑기( t, 남은값 ) {
 			({ [ raw[ p ] ] : 글자로뽑기( t ) }) ) 
 			) 
 		: {}; 
+	} 
+function ForV( o ) { 
+	return o instanceof Function ? o( 받아왔어요 ) : o; 
 	} 
