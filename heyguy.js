@@ -69,7 +69,7 @@ function 대충( raw, ... ar ) {
 			); 
 		} ) 
 		; 
-	ara .pop(); 
+	ara .pop(); // cut about pack 
 	rawa .raw = rawa; 
 	return String .raw( rawa, ... ara ); 
 	} 
