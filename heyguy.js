@@ -43,7 +43,7 @@ function 이보게젊은이( 널널한공간, 받아적어, ... 거시기 ) {
 	Object .assign( 받아왔어요, ... 거시기 .map( ( v, i ) => 
 		({ [ 남은값[ i + 1 ] ] : ForV( v ) }) // extract one time 
 		) ); 
-	return ForV( 시작값 ? 받아왔어요[ 시작값 ] : 받아적어 ); 
+	return ForV( 시작값 ? 받아왔어요[ 시작값 ] : 받아적어, ... 거시기 ); 
 	} 
 function 대략( ... ar ) { 
 	return 글자로뽑기( 대충( ... ar ) ) 
@@ -118,8 +118,8 @@ function 범위로뽑기( t, 남은값 ) {
 			) 
 		: {}; 
 	} 
-function ForV( o ) { 
-	return o instanceof Function ? o( 받아왔어요 ) : o; 
+function ForV( o, ... ar ) { 
+	return o instanceof Function ? o( 받아왔어요, ... ar ) : o; 
 	} 
 
 /////
