@@ -62,13 +62,15 @@ function 대충( raw, ... ar ) {
 			, arp = ar[ p ] 
 			; 
 		rawa .push( ... ra ); 
-		ara .push( ... aa ); 
+		ara .push( ... aa, '' ); 
 		arp && ( 
 			  rawa .push( '' ) 
 			, ara .push( arp ) 
 			); 
 		} ) 
 		; 
+	console .log( raw, ar ); 
+	console .log( rawa, ara ); 
 	rawa .raw = rawa; 
 	return String .raw( rawa, ... ara ); 
 	} 
