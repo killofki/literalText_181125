@@ -44,7 +44,7 @@ function 있는대로만( { raw }, ... ar ) { let printIndex = -1; return {
 			  printIndex += 1 
 			, ar .map( a => a && a[ printIndex ] || '' ) 
 			) ) 
-	, sourceFrom : [ { raw }, ... ar ] 
+	, sourceFrom : [ raw, ... ar ] 
 	}; } 
 function ttoraw( t, regv, regF ) { 
 	let raw = [], ar = []; 
