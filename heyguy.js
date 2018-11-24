@@ -30,6 +30,7 @@ ${ 이보게 }, ${ 사전 }.
 // viral with https://twitter.com/killofki/status/1066035649134845952 
 
 function initConst() { 
+/////
 	return { 이보게젊은이, 대략 }; 
 
 // functions.. 
@@ -95,4 +96,6 @@ function 범위로뽑기( t, 남은값 ) {
 function ForV( o ) { 
 	return o instanceof Function ? o( 받아왔어요 ) : o; 
 	} 
+
+/////
 } // -- initConst() 
