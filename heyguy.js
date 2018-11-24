@@ -62,16 +62,17 @@ function 대충( raw, ... ar ) {
 			, arp = ar[ p ] 
 			; 
 		rawa .push( ... ra ); 
-		ara .push( ... aa, '' ); 
+		ara .push( ... aa, '' ); // continue with next 
 		arp && ( 
 			  rawa .push( '' ) 
 			, ara .push( arp ) 
 			); 
 		} ) 
 		; 
-	console .log( raw, ar ); 
-	console .log( rawa, ara ); 
+	ara .pop(); 
 	rawa .raw = rawa; 
+	console.log(raw,ar);
+	console.log(rawa,ara);
 	return String .raw( rawa, ... ara ); 
 	} 
 function 있는대로만( { raw }, ... ar ) { let printIndex = -1; return { 
@@ -120,7 +121,6 @@ function 범위로뽑기( t, 남은값 ) {
 		: {}; 
 	} 
 function ForV( o ) { 
-	// return o instanceof Function ? o( 받아왔어요 ) : o; 
 	return o instanceof Function ? o( 받아왔어요 ) : o; 
 	} 
 
