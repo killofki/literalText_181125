@@ -52,19 +52,23 @@ function 대충( raw, ... ar ) {
 	var rawa = [], ara = []; 
 	raw .forEach( ( v, p ) => { 
 		let 
-			[ ra, ... aa ] = ttoraw( v 
+			  [ ra, ... aa ] = ttoraw( v 
 				, /([\s\S]*?)(\{\s*([\s\S]+?)\s*\}|$)/g 
-				, ( raw, ar ) => ( all, rawv, arv, arvv ) => ( 
-					  raw .push( rawv ) 
-					, ar .push( arv ? 받아왔어요[ arvv ] || `{${ arvv }}` : '' ) 
+				, ( traw, tar ) => ( all, rawv, arv, arvv ) => ( 
+					  traw .push( rawv ) 
+					, tar .push( arv ? 받아왔어요[ arvv ] || `{${ arvv }}` : '' ) 
 					) 
 				) 
+			, arp = ar[ p ] 
 			; 
-		rawa .push( ... ra, '' ); 
-		ara .push( ... aa, ar[ p ] ); 
+		rawa .push( ... ra ); 
+		ara .push( ... aa ); 
+		arp && ( 
+			  rawa .push( '' ) 
+			, ara .push( arp ) 
+			); 
 		} ) 
 		; 
-	ara .pop(); 
 	rawa .raw = rawa; 
 	return String .raw( rawa, ... ara ); 
 	} 
@@ -114,6 +118,7 @@ function 범위로뽑기( t, 남은값 ) {
 		: {}; 
 	} 
 function ForV( o ) { 
+	// return o instanceof Function ? o( 받아왔어요 ) : o; 
 	return o instanceof Function ? o( 받아왔어요 ) : o; 
 	} 
 
