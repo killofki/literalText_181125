@@ -1,6 +1,5 @@
 var { 이보게젊은이, 대략, 대충 } = initConst(); 
 
-var 받아왔어요; 
 console .log( 이보게젊은이 `
 
 시작 ${ q => 대충 ` 
@@ -35,7 +34,7 @@ function initConst() {
 	return { 이보게젊은이, 대략, 대충 }; 
 
 // functions.. 
-// var 받아왔어요; 
+var 받아왔어요; 
 function 이보게젊은이( 널널한공간, 받아적어, ... 거시기 ) { 
 	let 남은값 = []; 
 	Object .assign( 받아왔어요 = 받아왔어요 || {}, ... 널널한공간 .map( t => 범위로뽑기( t, 남은값 ) ) ); 
