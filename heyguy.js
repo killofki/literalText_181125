@@ -1,6 +1,6 @@
 var { 이보게젊은이, 대략, 대충 } = initConst(); 
 
-console .log( 이보게젊은이 `
+console .log( 이보게젊은이 ` 
 
 시작 ${ q => 대충 ` 
 “{ 이보게 }, { 그것이 }이 { 무엇인지 } { 무엇인지 }?” 
@@ -9,7 +9,7 @@ console .log( 이보게젊은이 `
 { 이보게 }, { 사전 }. 
 “그러니까... { 이것을 } { 네 }?” 
 “{ 무슨 }. { 그거 }은 { 무슨 }..” 
-` }
+` } 
 
 이보게 { [이보게 ]젊은이 } 
 그것이 ${ 대략 `[{ 음 }]{ 그것 } { 그것 } { 그것 } { 그것 }` } 
@@ -31,7 +31,7 @@ this { [desktop,version,futures,trading,application] }
 // viral with https://twitter.com/killofki/status/1066035649134845952 
 
 function initConst() { 
-/////
+///// 
 	return { 이보게젊은이, 대략, 대충 }; 
 
 // functions.. 
@@ -124,5 +124,5 @@ function ForV( o, ... ar ) {
 	return o instanceof Function ? { toString : q => `${ o( 받아왔어요, ... ar ) }` } : o; 
 	} 
 
-/////
+///// 
 } // -- initConst() 
