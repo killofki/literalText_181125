@@ -1,6 +1,7 @@
 var { 이보게젊은이, 대략, 대충 } = initConst(); 
 
-console .log( 이보게젊은이 `
+var 받아왔어요; 
+console .log( `${ 이보게젊은이 `
 
 시작 ${ q => 대충 ` 
 “{ 이보게 }, { 그것이 }이 { 무엇인지 } { 무엇인지 }?” 
@@ -12,20 +13,20 @@ console .log( 이보게젊은이 `
 ` }
 
 이보게 { [이보게 ]젊은이 } 
-그것이 ${ q => 대략 `[{ 음 }]{ 그것 } { 그것 } { 그것 } { 그것 }` } 
+그것이 ${ 대략 `[{ 음 }]{ 그것 } { 그것 } { 그것 } { 그것 }` } 
 음 { [요즘 ] } 
 그것 { [유행하는,셈틀,선물거래,응용프로그램] } 
 무엇인지 { [무엇인지,알려줄 수 있겠나,말일세] } 
 
 네 { [네,말씀하시는거죠] } 
 사전 { 사전을 뒤진다 } 
-이것을 ${ q => 대충 `{ 이거 } { 이거 } { 이거 }을` } 
+이것을 ${ 대충 `{ 이거 } { 이거 } { 이거 }을` } 
 이거 { [desktop version,futures trading,application] } 
 
 무슨 { [무슨 말을 하는겐가,모르겠네만] } 
 그거 { 꼬부랑말 } 
 
-	` ); 
+	` }` ); 
 // idea from https://twitter.com/Ranol__/status/1065972494060871680 
 // viral with https://twitter.com/killofki/status/1066035649134845952 
 
@@ -34,7 +35,7 @@ function initConst() {
 	return { 이보게젊은이, 대략, 대충 }; 
 
 // functions.. 
-var 받아왔어요; 
+// var 받아왔어요; 
 function 이보게젊은이( 널널한공간, 받아적어, ... 거시기 ) { 
 	let 남은값 = []; 
 	Object .assign( 받아왔어요 = 받아왔어요 || {}, ... 널널한공간 .map( t => 범위로뽑기( t, 남은값 ) ) ); 
@@ -46,9 +47,9 @@ function 이보게젊은이( 널널한공간, 받아적어, ... 거시기 ) {
 	return ForV( 시작값 ? 받아왔어요[ 시작값 ] : 받아적어, ... 거시기 ); 
 	} 
 function 대략( ... ar ) { 
-	return 글자로뽑기( 대충( ... ar ) ) 
+	return 글자로뽑기( `${ 대충( ... ar ) }` ) 
 	} 
-function 대충( raw, ... ar ) { 
+function 대충( raw, ... ar ) { return { toString }; function toString() { // lazy loader .. 
 	var rawa = [], ara = []; 
 	raw .forEach( ( v, p ) => { 
 		let 
@@ -56,7 +57,7 @@ function 대충( raw, ... ar ) {
 				, /([\s\S]*?)(\{\s*([\s\S]+?)\s*\}|$)/g 
 				, ( traw, tar ) => ( all, rawv, arv, arvv ) => ( 
 					  traw .push( rawv ) 
-					, tar .push( arv ? 받아왔어요[ arvv ] || `{${ arvv }}` : '' ) 
+					, tar .push( arv ? 받아왔어요 && 받아왔어요[ arvv ] || `{${ arvv }}` : '' ) 
 					) 
 				) 
 			, arp = ar[ p ] 
@@ -71,8 +72,11 @@ function 대충( raw, ... ar ) {
 		; 
 	ara .pop(); // cut about pack 
 	rawa .raw = rawa; 
-	return String .raw( rawa, ... ara ); 
-	} 
+	
+	return ( ( 
+		this .toString = q => String .raw( rawa, ... ara ) 
+		)() ); 
+	} } 
 function 있는대로만( { raw }, ... ar ) { let printIndex = -1; return { 
 	  toString : q => 
 		String .raw( { raw }, ( 
