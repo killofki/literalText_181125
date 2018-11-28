@@ -20,7 +20,8 @@ console .log( 이보게젊은이 `
 네 { [네,말씀하시는거죠] } 
 사전 { 사전을 뒤진다 } 
 이것을 ${ 대충 `{ 이거 } { 이거 } { 이거 }을` } 
-이거 { [desktop version,futures trading,application] } 
+이거 ${ q => 대충 `{ this } { this }` } 
+this { [desktop,version,futures,trading,application] } 
 
 무슨 { [무슨 말을 하는겐가,모르겠네만] } 
 그거 { 꼬부랑말 } 
