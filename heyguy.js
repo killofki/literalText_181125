@@ -1,7 +1,7 @@
 var { 이보게젊은이, 대략, 대충 } = initConst(); 
 
 var 받아왔어요; 
-console .log( `${ 이보게젊은이 `
+console .log( 이보게젊은이 `
 
 시작 ${ q => 대충 ` 
 “{ 이보게 }, { 그것이 }이 { 무엇인지 } { 무엇인지 }?” 
@@ -26,7 +26,7 @@ console .log( `${ 이보게젊은이 `
 무슨 { [무슨 말을 하는겐가,모르겠네만] } 
 그거 { 꼬부랑말 } 
 
-	` }` ); 
+	` ); 
 // idea from https://twitter.com/Ranol__/status/1065972494060871680 
 // viral with https://twitter.com/killofki/status/1066035649134845952 
 
@@ -44,7 +44,7 @@ function 이보게젊은이( 널널한공간, 받아적어, ... 거시기 ) {
 	Object .assign( 받아왔어요, ... 거시기 .map( ( v, i ) => 
 		({ [ 남은값[ i + 1 ] ] : ForV( v ) }) // extract one time 
 		) ); 
-	return ForV( 시작값 ? 받아왔어요[ 시작값 ] : 받아적어, ... 거시기 ); 
+	return `${ ForV( 시작값 ? 받아왔어요[ 시작값 ] : 받아적어, ... 거시기 ) }`; 
 	} 
 function 대략( ... ar ) { 
 	return 글자로뽑기( `${ 대충( ... ar ) }` ) 
