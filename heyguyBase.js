@@ -1,7 +1,10 @@
+"use module"
 // idea from https://twitter.com/Ranol__/status/1065972494060871680 
 // viral with https://twitter.com/killofki/status/1066035649134845952 
 
-export default function heyguyBase() { 
+module .exports = { ... heyguyBase() }; 
+
+function heyguyBase() { 
 ///// 
 	return { 이보게젊은이, 대략, 대충 }; 
 
