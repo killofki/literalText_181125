@@ -13,7 +13,7 @@ function heyguyBase() {
 var 받아왔어요; 
 var 대충call, 글자call, 범위call; 
 function initConst() { 
-	( { 대충call, 글자call, 범위call } = '' .match( /()/ ) .hasOwnProperty( 'groups' ) ? ({ 
+	( { 대충call, 글자call, 범위call } = '' .match( /()/ ) .hasOwnProperty( 'groups' ) ? ({ // reg groups test 
 		  대충call : [ 
 			  /(?<꾸밈>[\s\S]*?)(?<치환곽>\{\s*(?<치환자>[\s\S]+?)\s*\}|$)/g 
 			, ( traw, tar ) => ( all, rawv, arv, arvv, origin, position, { 꾸밈, 치환곽, 치환자 } ) => ( 
