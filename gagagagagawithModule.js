@@ -1,4 +1,4 @@
-var { 이보게젊은이, 대충, 대략 } = require( './heyguy.mjs' );
+var { 이보게젊은이, 대충, 대략 } = require( './heyguy.jsm' );
 
 console .log( 이보게젊은이 ` 
 
