@@ -98,10 +98,10 @@ function ttoraw( t, regv, regF ) {
 	} 
 function 글자로뽑기( t ) { 
 	return 있는대로만( ... ttoraw( t 
-		, /([^[]*)(\[([^\]]*?)\])?/g 
-		, ( raw, ar ) => ( all, rawv, arv, arvv ) => ( 
-			  raw .push( rawv ) 
-			, ar .push( arv && arvv .split( ',' ) ) 
+		, /(?<꾸밈>[^[]*)(?<돌돌이곽>\[(?<돌돌이>[^\]]*?)\])?/g 
+		, ( raw, ar ) => ( all, rawv, arv, arvv, origin, position, { 꾸밈, 돌돌이곽, 돌돌이 } ) => ( 
+			  raw .push( 꾸밈 ) 
+			, ar .push( 돌돌이곽 && 돌돌이 .split( ',' ) ) 
 			) 
 		) ); 
 	} 
