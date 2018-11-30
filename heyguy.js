@@ -54,10 +54,10 @@ function 대충( raw, ... ar ) { return { toString }; function toString() { // l
 	raw .forEach( ( v, p ) => { 
 		let 
 			  [ ra, ... aa ] = ttoraw( v 
-				, /([\s\S]*?)(\{\s*([\s\S]+?)\s*\}|$)/g 
-				, ( traw, tar ) => ( all, rawv, arv, arvv ) => ( 
-					  traw .push( rawv ) 
-					, tar .push( arv ? 받아왔어요 && 받아왔어요[ arvv ] || `{${ arvv }}` : '' ) 
+				, /(?<꾸밈>[\s\S]*?)(?<치환곽>\{\s*(?<치환자>[\s\S]+?)\s*\}|$)/g 
+				, ( traw, tar ) => ( all, rawv, arv, arvv, origin, position, { 꾸밈, 치환곽, 치환자 } ) => ( 
+					  traw .push( 꾸밈 ) 
+					, tar .push( 치환곽 ? 받아왔어요 && 받아왔어요[ 치환자 ] || `{${ 치환자 }}` : '' ) 
 					) 
 				) 
 			, arp = ar[ p ] 
