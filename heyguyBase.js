@@ -6,10 +6,61 @@ module .exports = { ... heyguyBase() };
 
 function heyguyBase() { 
 ///// 
+	initConst(); 
 	return { 이보게젊은이, 대략, 대충 }; 
 
 // functions.. 
 var 받아왔어요; 
+var 대충call, 글자call, 범위call; 
+function initConst() { 
+	( { 대충call, 글자call, 범위call } = '' .match( /()/ ) .hasOwnProperty( 'groups' ) ? ({ 
+		  대충call : [ 
+			  /(?<꾸밈>[\s\S]*?)(?<치환곽>\{\s*(?<치환자>[\s\S]+?)\s*\}|$)/g 
+			, ( traw, tar ) => ( all, rawv, arv, arvv, origin, position, { 꾸밈, 치환곽, 치환자 } ) => ( 
+				  traw .push( 꾸밈 ) 
+				, tar .push( 치환곽 ? 받아왔어요 && 받아왔어요[ 치환자 ] || `{${ 치환자 }}` : '' ) 
+				) 
+			] 
+		, 글자call : [ 
+			  /(?<꾸밈>[^[]*)(?<돌돌이곽>\[(?<돌돌이>[^\]]*?)\])?/g 
+			, ( raw, ar ) => ( all, rawv, arv, arvv, origin, position, { 꾸밈, 돌돌이곽, 돌돌이 } ) => ( 
+				  raw .push( 꾸밈 ) 
+				, ar .push( 돌돌이곽 && 돌돌이 .split( ',' ) ) 
+				) 
+			] 
+		, 범위call : [ 
+			  /\s*(?<제목>[^{]*?)\s*(?<내용칸>\{\s*(?<내용>[^}]*?)\s*\}|$)/g 
+			, ( raw, ar ) => ( all, rawv, arv, arvv, origin, position, { 제목, 내용칸, 내용 } ) => ( 
+				  raw .push( 제목 ) 
+				, ar .push( 내용칸 && 내용 ) 
+				) 
+			] 
+		}) 
+	: ({ 
+		  대충call : [ 
+			  /([\s\S]*?)(\{\s*([\s\S]+?)\s*\}|$)/g 
+			, ( traw, tar ) => ( all, rawv, arv, arvv ) => ( 
+				  traw .push( rawv ) 
+				, tar .push( arv ? 받아왔어요 && 받아왔어요[ arvv ] || `{${ arvv }}` : '' ) 
+				) 
+			] 
+		, 글자call : [ 
+			  /([^[]*)(\[([^\]]*?)\])?/g 
+			, ( raw, ar ) => ( all, rawv, arv, arvv ) => ( 
+				  raw .push( rawv ) 
+				, ar .push( arv && arvv .split( ',' ) ) 
+				) 
+			] 
+		, 범위call : [ 
+			  /\s*([^{]*?)\s*(\{\s*([^}]*?)\s*\}|$)/g 
+			, ( raw, ar ) => ( all, rawv, arv, arvv ) => ( 
+				  raw .push( rawv ) 
+				, ar .push( arv && arvv ) 
+				) 
+			] 
+		}) 
+		); 
+	} 
 function 이보게젊은이( 널널한공간, 받아적어, ... 거시기 ) { 
 	let 남은값 = []; 
 	Object .assign( 받아왔어요 = 받아왔어요 || {}, ... 널널한공간 .map( t => 범위로뽑기( t, 남은값 ) ) ); 
@@ -27,13 +78,7 @@ function 대충( raw, ... ar ) { return { toString }; function toString() { // l
 	var rawa = [], ara = []; 
 	raw .forEach( ( v, p ) => { 
 		let 
-			  [ ra, ... aa ] = ttoraw( v 
-				, /(?<꾸밈>[\s\S]*?)(?<치환곽>\{\s*(?<치환자>[\s\S]+?)\s*\}|$)/g 
-				, ( traw, tar ) => ( all, rawv, arv, arvv, origin, position, { 꾸밈, 치환곽, 치환자 } ) => ( 
-					  traw .push( 꾸밈 ) 
-					, tar .push( 치환곽 ? 받아왔어요 && 받아왔어요[ 치환자 ] || `{${ 치환자 }}` : '' ) 
-					) 
-				) 
+			  [ ra, ... aa ] = ttoraw( v, ... 대충call ) 
 			, arp = ar[ p ] 
 			; 
 		rawa .push( ... ra ); 
@@ -70,23 +115,9 @@ function ttoraw( t, regv, regF ) {
 	raw .length ? ( ar .length = raw .length - 1 ) : raw .push( '' ); 
 	return [ raw, ... ar ]; 
 	} 
-function 글자로뽑기( t ) { 
-	return 있는대로만( ... ttoraw( t 
-		, /(?<꾸밈>[^[]*)(?<돌돌이곽>\[(?<돌돌이>[^\]]*?)\])?/g 
-		, ( raw, ar ) => ( all, rawv, arv, arvv, origin, position, { 꾸밈, 돌돌이곽, 돌돌이 } ) => ( 
-			  raw .push( 꾸밈 ) 
-			, ar .push( 돌돌이곽 && 돌돌이 .split( ',' ) ) 
-			) 
-		) ); 
-	} 
+function 글자로뽑기( t ) { return 있는대로만( ... ttoraw( t, ... 글자call ) ); } 
 function 범위로뽑기( t, 남은값 ) { 
-	let [ raw, ... ar ] = ttoraw( t 
-		, /\s*(?<제목>[^{]*?)\s*(?<내용칸>\{\s*(?<내용>[^}]*?)\s*\}|$)/g 
-		, ( raw, ar ) => ( all, rawv, arv, arvv, origin, position, { 제목, 내용칸, 내용 } ) => ( 
-			  raw .push( 제목 ) 
-			, ar .push( 내용칸 && 내용 ) 
-			) 
-		); 
+	let [ raw, ... ar ] = ttoraw( t, ... 범위call ); 
 	남은값 .push( raw[ ar .length ] ); 
 	return ar .length ? Object .assign( ... ar .map( ( t, p ) => 
 			({ [ raw[ p ] ] : 글자로뽑기( t ) }) ) 
