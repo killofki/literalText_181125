@@ -106,7 +106,6 @@ function 글자로뽑기( t ) {
 		) ); 
 	} 
 function 범위로뽑기( t, 남은값 ) { 
-	let remainv; 
 	let [ raw, ... ar ] = ttoraw( t 
 		, /\s*([^{]*?)\s*(\{\s*([^}]*?)\s*\}|$)/g 
 		, ( raw, ar ) => ( all, rawv, arv, arvv ) => ( 
