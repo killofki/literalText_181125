@@ -107,10 +107,10 @@ function 글자로뽑기( t ) {
 	} 
 function 범위로뽑기( t, 남은값 ) { 
 	let [ raw, ... ar ] = ttoraw( t 
-		, /\s*([^{]*?)\s*(\{\s*([^}]*?)\s*\}|$)/g 
-		, ( raw, ar ) => ( all, rawv, arv, arvv ) => ( 
-			  raw .push( rawv ) 
-			, ar .push( arv && arvv ) 
+		, /\s*(?<제목>[^{]*?)\s*(?<내용칸>\{\s*(?<내용>[^}]*?)\s*\}|$)/g 
+		, ( raw, ar ) => ( all, rawv, arv, arvv, origin, position, { 제목, 내용칸, 내용 } ) => ( 
+			  raw .push( 제목 ) 
+			, ar .push( 내용칸 && 내용 ) 
 			) 
 		); 
 	남은값 .push( raw[ ar .length ] ); 
