@@ -54,6 +54,15 @@ function 있는대로만( { raw }, ... ar ) { let printIndex = -1; return {
 			) ) 
 	, sourceFrom : [ raw, ... ar ] 
 	}; } 
+function 글자로뽑기( t ) { return 있는대로만( ... ttoraw( t, ... 글자call ) ); } 
+function 범위로뽑기( t, 남은값 ) { 
+	let [ raw, ... ar ] = ttoraw( t, ... 범위call ); 
+	남은값 .push( raw[ ar .length ] ); 
+	return ar .length ? Object .assign( ... ar .map( ( t, p ) => 
+			({ [ raw[ p ] ] : 글자로뽑기( t ) }) ) 
+			) 
+		: {}; 
+	} 
 function initConst() { 
 	( { 대충call, 글자call, 범위call } = '' .match( /()/ ) .hasOwnProperty( 'groups' ) ? ({ // reg groups test 
 		  대충call : [ 
@@ -115,15 +124,6 @@ function ttoraw( t, regv, regF ) {
 	raw .raw = raw; 
 	raw .length ? ( ar .length = raw .length - 1 ) : raw .push( '' ); 
 	return [ raw, ... ar ]; 
-	} 
-function 글자로뽑기( t ) { return 있는대로만( ... ttoraw( t, ... 글자call ) ); } 
-function 범위로뽑기( t, 남은값 ) { 
-	let [ raw, ... ar ] = ttoraw( t, ... 범위call ); 
-	남은값 .push( raw[ ar .length ] ); 
-	return ar .length ? Object .assign( ... ar .map( ( t, p ) => 
-			({ [ raw[ p ] ] : 글자로뽑기( t ) }) ) 
-			) 
-		: {}; 
 	} 
 function ForV( o, ... ar ) { 
 	return o instanceof Function ? { toString : q => `${ o( 받아왔어요, ... ar ) }` } : o; 
