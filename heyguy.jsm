@@ -44,7 +44,10 @@ function 대충( raw, ... ar ) { return { toString }; function toString() { // l
 	ara .pop(); // cut about pack 
 	rawa .raw = rawa; 
 	
-	return ( t => this .toString = q => t )( String .raw( rawa, ... ara ) )(); 
+	return ( t => 
+		Object .assign( this, { sourceFrom : [ rawa, ara ] } ) 
+		.toString = q => t 
+		)( String .raw( rawa, ... ara ) )(); 
 	} } 
 function 있는대로만( { raw }, ... ar ) { let printIndex = -1; return { 
 	  toString : q => 
