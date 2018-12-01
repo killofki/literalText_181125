@@ -55,7 +55,7 @@ function 있는대로만( { raw }, ... ar ) { let printIndex = -1; return {
 			  printIndex += 1 
 			, ar .map( a => a && a[ printIndex ] || '' ) 
 			) ) 
-	, sourceFrom : [ raw, ... ar ] 
+	, sourceFrom : [ raw, ar ] 
 	}; } 
 function 글자로뽑기( t ) { return 있는대로만( ... ttoraw( t, ... 글자call ) ); } 
 function 범위로뽑기( t, 남은값 ) { 
