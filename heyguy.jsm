@@ -54,7 +54,7 @@ function 있는대로만( { raw }, ... ar ) { let printIndex = -1; return {
 			) ) 
 	, sourceFrom : [ raw, ... ar ] 
 	}; } 
-function 글자로뽑기( t ) { return 있는대로만( ... ttoraw( `${ t }`, ... 글자call ) ); } 
+function 글자로뽑기( t ) { return 있는대로만( ... ttoraw( t, ... 글자call ) ); } 
 function 범위로뽑기( t, 남은값 ) { 
 	let [ raw, ... ar ] = ttoraw( t, ... 범위call ); 
 	남은값 .push( raw[ ar .length ] ); 
@@ -128,7 +128,7 @@ function rawCatcherU( t, regv, regF ) {
 	return [ raw, ar ]; 
 	}
 function ttoraw( t, regv, regF ) { 
-	let [ raw, ar ] = rawCatcher( t, regv, regF ); 
+	let [ raw, ar ] = rawCatcher( `${ t }`, regv, regF ); 
 	let rpop, apop; 
 	while ( [ rpop = raw .pop(), apop = ar .pop() ] .every( v => ! v ) && raw .length ) 
 		; 
