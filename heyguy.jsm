@@ -116,19 +116,19 @@ function initConst() {
 	} 
 function rawCatcher( t, regv, regF ) { 
 	let raw = [], ar = []; 
-	t .replace( regv, regF( raw, ar ) ); 
+	`${ t }` .replace( regv, regF( raw, ar ) ); 
 	return [ raw, ar ]; 
 	} 
 function rawCatcherU( t, regv, regF ) { 
 	let raw = [], ar = []; 
-	t .replace( regv, ( all, ... rar ) => pipe( 
+	`${ t }` .replace( regv, ( all, ... rar ) => pipe( 
 		  [ rar .pop(), rar .pop() ] 
 		, ([ groups, po ]) => regF( raw, ar )( groups, po, all ) 
 		) ); 
 	return [ raw, ar ]; 
 	}
 function ttoraw( t, regv, regF ) { 
-	let [ raw, ar ] = rawCatcher( `${ t }`, regv, regF ); 
+	let [ raw, ar ] = rawCatcher( t, regv, regF ); 
 	let rpop, apop; 
 	while ( [ rpop = raw .pop(), apop = ar .pop() ] .every( v => ! v ) && raw .length ) 
 		; 
