@@ -143,7 +143,10 @@ function ttoraw( t, regv, regF ) {
 	return [ raw, ... ar ]; 
 	} 
 function ForV( o, ... ar ) { 
-	return o instanceof Function ? { toString : q => `${ o( 받아왔어요, ... ar ) }` } : o; 
+	return o instanceof Function ? { 
+		  toString : q => `${ o( 받아왔어요, ... ar ) }` 
+		, sourceFrom : [ o, ar ] 
+		} : o; 
 	} 
 function pipe( ... ar ) { return ar .reduce( ( o, F ) => F( o ) ); } 
 
