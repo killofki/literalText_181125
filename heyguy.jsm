@@ -64,8 +64,8 @@ function 범위로뽑기( t, 남은값 ) {
 		: {}; 
 	} 
 function initConst() { 
-	( { ttoraw, 대충call, 글자call, 범위call } = '' .match( /()/ ) .hasOwnProperty( 'groups' ) ? ({ // reg groups test 
-		  ttoraw : ttorawU 
+	( { rawCatcher, 대충call, 글자call, 범위call } = '' .match( /()/ ) .hasOwnProperty( 'groups' ) ? ({ // reg groups test 
+		  rawCatcher : rawCatcherU 
 		, 대충call : [ 
 			  /(?<꾸밈>[\s\S]*?)(?<치환곽>\{\s*(?<치환자>[\s\S]+?)\s*\}|$)/g 
 			, ( traw, tar ) => ( { 꾸밈, 치환곽, 치환자 }, po, all ) => ( 
@@ -89,7 +89,7 @@ function initConst() {
 			] 
 		}) 
 	: ({ 
-		  ttoraw 
+		  rawCatcher 
 		, 대충call : [ 
 			  /([\s\S]*?)(\{\s*([\s\S]+?)\s*\}|$)/g 
 			, ( traw, tar ) => ( all, rawv, arv, arvv ) => ( 
@@ -114,28 +114,24 @@ function initConst() {
 		}) 
 		); 
 	} 
-function ttoraw( t, regv, regF ) { 
+function rawCatcher( t, regv, regF ) { 
 	let raw = [], ar = []; 
 	t .replace( regv, regF( raw, ar ) ); 
-	let rpop, apop; 
-	while ( [ rpop = raw .pop(), apop = ar .pop() ] .every( v => ! v ) && raw .length ) { 
-		} 
-	  apop ? ( raw .push( rpop, '' ), ar .push ( apop ) ) 
-	: rpop && ( raw .push( rpop ), ar .push ( apop ) ) 
-		; 
-	raw .raw = raw; 
-	raw .length ? ( ar .length = raw .length - 1 ) : raw .push( '' ); 
-	return [ raw, ... ar ]; 
+	return [ raw, ar ]; 
 	} 
-function ttorawU( t, regv, regF ) { 
+function rawCatcherU( t, regv, regF ) { 
 	let raw = [], ar = []; 
 	t .replace( regv, ( all, ... rar ) => pipe( 
 		  [ rar .pop(), rar .pop() ] 
 		, ([ groups, po ]) => regF( raw, ar )( groups, po, all ) 
 		) ); 
+	return [ raw, ar ]; 
+	}
+function ttoraw( t, regv, regF ) { 
+	let [ raw, ar ] = rawCatcher( t, regv, regF ); 
 	let rpop, apop; 
-	while ( [ rpop = raw .pop(), apop = ar .pop() ] .every( v => ! v ) && raw .length ) { 
-		} 
+	while ( [ rpop = raw .pop(), apop = ar .pop() ] .every( v => ! v ) && raw .length ) 
+		; 
 	  apop ? ( raw .push( rpop, '' ), ar .push ( apop ) ) 
 	: rpop && ( raw .push( rpop ), ar .push ( apop ) ) 
 		; 
