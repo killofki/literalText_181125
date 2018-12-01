@@ -24,7 +24,7 @@ function 이보게젊은이( 널널한공간, 받아적어, ... 거시기 ) {
 	return `${ ForV( 시작값 ? 받아왔어요[ 시작값 ] : 받아적어, ... 거시기 ) }`; 
 	} 
 function 대략( ... ar ) { return { toString }; function toString() { // lazy loader with fix value .. 
-	return `${ Object .assign( this, 글자로뽑기( 대충( ... ar ) ) ) }`; 
+	return Object .assign( this, 글자로뽑기( 대충( ... ar ) ) ) .toString(); 
 	} } 
 function 대충( raw, ... ar ) { return { toString }; function toString() { // lazy loader with fix value .. 
 	var rawa = [], ara = []; 
