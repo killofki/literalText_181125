@@ -13,7 +13,7 @@ function heyguyBase() {
 // functions.. 
 var 받아왔어요; 
 var 대충call, 글자call, 범위call; 
-function 이보게젊은이( 널널한공간, 받아적어, ... 거시기 ) { 
+function 이보게젊은이( 널널한공간, 받아적어, ... 거시기 ) { // get first argument by template literal 
 	let 남은값 = []; 
 	널널한공간 .reduce( ( o, t ) => pipeo( o, o => 
 		범위로뽑기( t, 남은값 ) 
