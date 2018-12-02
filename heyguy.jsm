@@ -19,9 +19,8 @@ function 이보게젊은이( 널널한공간, 받아적어, ... 거시기 ) { //
 		, 받아왔어요 = 받아왔어요 || {} ); 
 	let [ 시작값 ] = 남은값; 
 	시작값 && pipeo( 받아왔어요, o => ({ [ 시작값 ] : 받아적어 }) ); // remain original function 
-	거시기 .reduce( ( o, v, i ) => pipeo( o, o => 
-		({ [ 남은값[ i + 1 ] ] : ForV( v ) }) // extract one time 
-		), 받아왔어요 ); 
+	거시기 .reduce( ( o, v, i ) => pipeo( o, o => ({ [ 남은값[ i + 1 ] ] : ForV( v ) }) ) // extract one time 
+		, 받아왔어요 ); 
 	return `${ ForV( 시작값 ? 받아왔어요[ 시작값 ] : 받아적어, ... 거시기 ) }`; 
 	} 
 function 대략( ... ar ) { return { toString }; function toString() { // lazy loader with fix value .. 
