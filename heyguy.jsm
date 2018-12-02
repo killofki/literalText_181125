@@ -46,10 +46,9 @@ function 대충( raw, ... ar ) { return { toString }; function toString() { // l
 	ara .pop(); // cut about pack 
 	rawa .raw = rawa; 
 	
-	return ( t => 
+	return assigner( 
 		pipeo( this, o => ({ sourceFrom : [ rawa, ara ] }) ) 
-		.toString = q => t 
-		)( String .raw( rawa, ... ara ) )(); 
+		) .toString = String .raw( rawa, ... ara ); 
 	} } 
 function 글자로뽑기( t ) { return 있는대로만( ... ttoraw( t, ... 글자call ) ); } 
 function 범위로뽑기( t, 남은값 ) { 
@@ -152,6 +151,12 @@ function ForV( o, ... ar ) {
 	} 
 function pipe( ... ar ) { return ar .reduce( ( o, F ) => F( o ) ); } 
 function pipeo( ... ar ) { return ar .reduce( ( o, F ) => Object .assign( o, F( o ) ) ); } 
+function assigner( o ) { 
+	assigner = new Proxy( ao => ( o = ao, assigner ), { 
+		set : ( t, p, v ) => t[ p ] = v 
+		} ); 
+	return assigner( o ); 
+	} 
 
 ///// 
 } // -- initConst() 
