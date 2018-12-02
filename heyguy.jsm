@@ -15,16 +15,18 @@ var 받아왔어요;
 var 대충call, 글자call, 범위call; 
 function 이보게젊은이( 널널한공간, 받아적어, ... 거시기 ) { 
 	let 남은값 = []; 
-	Object .assign( 받아왔어요 = 받아왔어요 || {}, ... 널널한공간 .map( t => 범위로뽑기( t, 남은값 ) ) ); 
+	널널한공간 .reduce( ( o, t ) => pipeo( o, o => 
+		범위로뽑기( t, 남은값 ) 
+		), 받아왔어요 = 받아왔어요 || {} ); 
 	let [ 시작값 ] = 남은값; 
 	시작값 && Object .assign( 받아왔어요, { [ 시작값 ] : 받아적어 } ); // remain original function 
-	Object .assign( 받아왔어요, ... 거시기 .map( ( v, i ) => 
+	거시기 .reduce( ( o, v, i ) => pipeo( o, o => 
 		({ [ 남은값[ i + 1 ] ] : ForV( v ) }) // extract one time 
-		) ); 
+		), 받아왔어요 ); 
 	return `${ ForV( 시작값 ? 받아왔어요[ 시작값 ] : 받아적어, ... 거시기 ) }`; 
 	} 
 function 대략( ... ar ) { return { toString }; function toString() { // lazy loader with fix value .. 
-	return Object .assign( this, 글자로뽑기( 대충( ... ar ) ) ) .toString(); 
+	return pipeo( this, o => 글자로뽑기( 대충( ... ar ) ) ) .toString(); 
 	} } 
 function 대충( raw, ... ar ) { return { toString }; function toString() { // lazy loader with fix value .. 
 	var rawa = [], ara = []; 
@@ -149,6 +151,7 @@ function ForV( o, ... ar ) {
 		} : o; 
 	} 
 function pipe( ... ar ) { return ar .reduce( ( o, F ) => F( o ) ); } 
+function pipeo( ... ar ) { return ar .reduce( ( o, F ) => Object .assign( o, F( o ) ) ); } 
 
 ///// 
 } // -- initConst() 
