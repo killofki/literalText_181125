@@ -123,7 +123,7 @@ function rawCatcher( t, regv, regF ) {
 	`${ t }` .replace( regv, regF( raw, ar ) ); 
 	return [ raw, ar ]; 
 	} 
-function rawCatcherU( t, regv, regF ) { 
+function rawCatcherU( t, regv, regF ) { // when able .match( RegExp ) .groups 
 	let raw = [], ar = []; 
 	`${ t }` .replace( regv, ( all, ... rar ) => pipe( 
 		  [ rar .pop(), rar .pop() ] 
