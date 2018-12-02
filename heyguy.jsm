@@ -158,9 +158,8 @@ function assigner( o, ... ar ) {
 			) 
 		; 
 	
-	redefines( o, ar ); 
 	assigner = new Proxy( ( ao, ... aar ) => ( redefines( ao, aar ), assigner ), { // lazy with proxy 
-		set : ( t, p, v ) => pipeo( t, ... ar .map( F => t => F( t, p, v ) ) ) 
+		set : ( t, p, v ) => ar .forEach( F => pipeo( t, t => F( t, p, v ) ) ) 
 		} ); 
 	return assigner( o, ... ar ); 
 	} 
