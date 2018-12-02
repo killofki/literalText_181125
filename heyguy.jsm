@@ -70,9 +70,9 @@ function initConst() {
 		  rawCatcher : rawCatcherU 
 		, 대충call : [ 
 			  /(?<꾸밈>[\s\S]*?)(?<치환곽>\{\s*(?<치환자>[\s\S]+?)\s*\}|$)/g 
-			, ( traw, tar ) => ( { 꾸밈, 치환곽, 치환자 }, po, all ) => ( 
-				  traw .push( 꾸밈 ) 
-				, tar .push( 치환곽 ? 받아왔어요 && 받아왔어요[ 치환자 ] || `{${ 치환자 }}` : '' ) 
+			, ( raw, ar ) => ( { 꾸밈, 치환곽, 치환자 }, po, all ) => ( 
+				  raw .push( 꾸밈 ) 
+				, ar .push( 치환곽 ? 받아왔어요 && 받아왔어요[ 치환자 ] || `{${ 치환자 }}` : '' ) 
 				) 
 			] 
 		, 글자call : [ 
@@ -94,9 +94,9 @@ function initConst() {
 		  rawCatcher 
 		, 대충call : [ 
 			  /([\s\S]*?)(\{\s*([\s\S]+?)\s*\}|$)/g 
-			, ( traw, tar ) => ( all, rawv, arv, arvv ) => ( 
-				  traw .push( rawv ) 
-				, tar .push( arv ? 받아왔어요 && 받아왔어요[ arvv ] || `{${ arvv }}` : '' ) 
+			, ( raw, ar ) => ( all, rawv, arv, arvv ) => ( 
+				  raw .push( rawv ) 
+				, ar .push( arv ? 받아왔어요 && 받아왔어요[ arvv ] || `{${ arvv }}` : '' ) 
 				) 
 			] 
 		, 글자call : [ 
