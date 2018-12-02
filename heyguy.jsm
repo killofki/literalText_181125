@@ -49,14 +49,6 @@ function 대충( raw, ... ar ) { return { toString }; function toString() { // l
 		.toString = q => t 
 		)( String .raw( rawa, ... ara ) )(); 
 	} } 
-function 있는대로만( { raw }, ... ar ) { let printIndex = -1; return { 
-	  toString : q => 
-		String .raw( { raw }, ( 
-			  printIndex += 1 
-			, ar .map( a => a && a[ printIndex ] || '' ) 
-			) ) 
-	, sourceFrom : [ raw, ar ] 
-	}; } 
 function 글자로뽑기( t ) { return 있는대로만( ... ttoraw( t, ... 글자call ) ); } 
 function 범위로뽑기( t, 남은값 ) { 
 	let [ raw, ... ar ] = ttoraw( t, ... 범위call ); 
@@ -66,6 +58,14 @@ function 범위로뽑기( t, 남은값 ) {
 			) 
 		: {}; 
 	} 
+function 있는대로만( { raw }, ... ar ) { let printIndex = -1; return { 
+	  toString : q => 
+		String .raw( { raw }, ( 
+			  printIndex += 1 
+			, ar .map( a => a && a[ printIndex ] || '' ) 
+			) ) 
+	, sourceFrom : [ raw, ar ] 
+	}; } 
 function initConst() { 
 	( { rawCatcher, 대충call, 글자call, 범위call } = '' .match( /()/ ) .hasOwnProperty( 'groups' ) ? ({ // reg groups test 
 		  rawCatcher : rawCatcherU 
