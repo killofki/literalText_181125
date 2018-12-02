@@ -47,7 +47,7 @@ function 대충( raw, ... ar ) { return { toString }; function toString() { // l
 	rawa .raw = rawa; 
 	
 	return ( t => 
-		Object .assign( this, { sourceFrom : [ rawa, ara ] } ) 
+		pipeo( this, o => ({ sourceFrom : [ rawa, ara ] }) ) 
 		.toString = q => t 
 		)( String .raw( rawa, ... ara ) )(); 
 	} } 
