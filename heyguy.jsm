@@ -19,7 +19,7 @@ function 이보게젊은이( 널널한공간, 받아적어, ... 거시기 ) {
 		범위로뽑기( t, 남은값 ) 
 		), 받아왔어요 = 받아왔어요 || {} ); 
 	let [ 시작값 ] = 남은값; 
-	시작값 && Object .assign( 받아왔어요, { [ 시작값 ] : 받아적어 } ); // remain original function 
+	시작값 && pipeo( 받아왔어요, o => ({ [ 시작값 ] : 받아적어 }) ); // remain original function 
 	거시기 .reduce( ( o, v, i ) => pipeo( o, o => 
 		({ [ 남은값[ i + 1 ] ] : ForV( v ) }) // extract one time 
 		), 받아왔어요 ); 
