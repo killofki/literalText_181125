@@ -139,7 +139,7 @@ function ttoraw( t, regv, regF ) {
 	  apop ? ( raw .push( rpop, '' ), ar .push ( apop ) ) 
 	: rpop && ( raw .push( rpop ), ar .push ( apop ) ) 
 		; 
-	raw .raw = raw; 
+	pipeo( raw, o => ({ raw }) ); 
 	raw .length ? ( ar .length = raw .length - 1 ) : raw .push( '' ); 
 	return [ raw, ... ar ]; 
 	} 
