@@ -152,10 +152,7 @@ function pipeo( ... ar ) { return ar .reduce( ( o, F ) => Object .assign( o, F( 
 function assigner( o, ... ar ) { 
 	var 
 		  defaultF = ( t, p, v ) => ({ [ p ] : v }) 
-		, redefines = ( doo, dar ) => ( 
-			  o = doo 
-			, ar = dar .length ? dar : [ defaultF ] 
-			) 
+		, redefines = ( doo, dar ) => ( [ o, ar ] = [ doo, dar .length ? dar : [ defaultF ] ] ) 
 		; 
 	
 	assigner = new Proxy( ( ao, ... aar ) => ( redefines( ao, aar ), assigner ), { // lazy with proxy 
