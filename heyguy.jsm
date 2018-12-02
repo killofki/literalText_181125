@@ -153,7 +153,7 @@ function pipe( ... ar ) { return ar .reduce( ( o, F ) => F( o ) ); }
 function pipeo( ... ar ) { return ar .reduce( ( o, F ) => Object .assign( o, F( o ) ) ); } 
 function assigner( o ) { 
 	assigner = new Proxy( ao => ( o = ao, assigner ), { 
-		set : ( t, p, v ) => t[ p ] = v 
+		set : ( t, p, v ) => pipeo( t, t => ({ [ p ] : v }) ) 
 		} ); 
 	return assigner( o ); 
 	} 
