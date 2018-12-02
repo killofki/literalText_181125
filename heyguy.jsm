@@ -150,9 +150,9 @@ function ForV( o, ... ar ) {
 function pipe( ... ar ) { return ar .reduce( ( o, F ) => F( o ) ); } 
 function pipeo( ... ar ) { return ar .reduce( ( o, F ) => Object .assign( o, F( o ) ) ); } 
 function assigner( o, ... ar ) { 
-	ar = ar || [ ( t, p, v ) => t => ({ [ p ] : v }) ]; // default 
+	ar = ar || [ ( t, p, v ) => ({ [ p ] : v }) ]; // default 
 	assigner = new Proxy( ao => ( o = ao, assigner ), { 
-		set : ( t, p, v ) => pipeo( t, ... ar .map( F => F( t, p, v ) ) ) 
+		set : ( t, p, v ) => pipeo( t, ... ar .map( F => t => F( t, p, v ) ) ) 
 		} ); 
 	return assigner( o, ... ar ); 
 	} 
