@@ -44,7 +44,7 @@ function 대충( raw, ... ar ) { return { toString }; function toString() { // l
 		} ) 
 		; 
 	ara .pop(); // cut about pack 
-	rawa .raw = rawa; 
+	pipeo( rawa, o => ({ raw : rawa }) ); 
 	
 	return assigner( 
 		pipeo( this, o => ({ sourceFrom : [ rawa, ara ] }) ) 
