@@ -15,9 +15,8 @@ var 받아왔어요;
 var 대충call, 글자call, 범위call; 
 function 이보게젊은이( 널널한공간, 받아적어, ... 거시기 ) { // get first argument by template literal 
 	let 남은값 = []; 
-	널널한공간 .reduce( ( o, t ) => pipeo( o, o => 
-		범위로뽑기( t, 남은값 ) 
-		), 받아왔어요 = 받아왔어요 || {} ); 
+	널널한공간 .reduce( ( o, t ) => pipeo( o, o => 범위로뽑기( t, 남은값 ) ) 
+		, 받아왔어요 = 받아왔어요 || {} ); 
 	let [ 시작값 ] = 남은값; 
 	시작값 && pipeo( 받아왔어요, o => ({ [ 시작값 ] : 받아적어 }) ); // remain original function 
 	거시기 .reduce( ( o, v, i ) => pipeo( o, o => 
