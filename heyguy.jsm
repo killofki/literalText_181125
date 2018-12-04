@@ -45,7 +45,8 @@ function 대충( raw, ... ar ) { return { toString }; function toString() { // l
 	pipeo( rawa, o => ({ raw : o }) ); 
 	
 	return assigner( 
-		pipeo( this, o => ({ sourceFrom : [ rawa, ara ] }) ) 
+		  pipeo( this, o => ({ sourceFrom : [ rawa, ara ] }) ) 
+		, ( t, p, v ) => ({ [ p ] : q => v }) 
 		) .toString = String .raw( rawa, ... ara ); 
 	} } 
 function 글자로뽑기( t ) { return 있는대로만( ... ttoraw( t, ... 글자call ) ); } 
