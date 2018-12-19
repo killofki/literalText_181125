@@ -8,7 +8,7 @@ Object .assign( module .exports = module .exports || {}, heyguyBase() );
 function heyguyBase() { 
 ///// 
 	initConst(); 
-	return { 이보게젊은이, 대략, 대충 }; 
+	return { 이보게젊은이, 대략, 대충, heyguyBase }; 
 
 // functions.. 
 var 받아왔어요; 
