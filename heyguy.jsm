@@ -3,7 +3,7 @@
 // viral with https://twitter.com/killofki/status/1066035649134845952 
 
 var module = module || {}; 
-module .exports = { ... heyguyBase() }; 
+Object .assign( module .exports = module .exports || {}, heyguyBase() ); 
 
 function heyguyBase() { 
 ///// 
