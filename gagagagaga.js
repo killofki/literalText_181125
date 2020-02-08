@@ -80,7 +80,9 @@ function 대충( raw, ... ar ) {
 				) 
 			} 
 		ara .pop() // cut about pack 
-		rawa .raw = rawa 
+		rawa = Object .assign( Object .create( rawa ), new class { 
+			raw = rawa 
+			} ) 
 		
 		return ( t => this .toString = q => t ) ( String .raw( rawa, ... ara ) )() 
 		} // -- toString() < 대충() 
