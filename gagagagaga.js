@@ -148,10 +148,10 @@ function 범위로뽑기( t, 남은값 ) {
 		, ( raw, ar ) => ( 
 				  all, rawv, arv, arvv, origin, position 
 				, { 제목, 내용칸, 내용 } 
-				) => ( 
-			  raw .push( 제목 ) 
-			, ar .push( 내용칸 && 내용 ) 
-			) 
+				) => { 
+			raw .push( 제목 ) 
+			ar .push( 내용칸 && 내용 ) 
+			} 
 		) 
 	남은값 .push( raw[ ar .length ] ) 
 	return ar .length ? assign( ... ar .map( ( t, p ) => 
