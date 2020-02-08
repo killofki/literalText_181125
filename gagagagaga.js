@@ -1,4 +1,4 @@
-var { 이보게젊은이, 대략, 대충 } = initConst(); 
+var { 이보게젊은이, 대략, 대충 } = initConst() 
 
 console .log( 이보게젊은이 ` 
 
