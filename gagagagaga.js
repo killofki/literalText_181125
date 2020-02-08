@@ -32,7 +32,7 @@ function 이보게젊은이( 널널한공간, 받아적어, ... 거시기 ) {
 	let [ 시작값 ] = 남은값 
 	시작값 && assign( 
 		  받아왔어요 
-		, { [ 시작값 ] : 받아적어 } 
+		, new class { [ 시작값 ] = 받아적어 } 
 		) // remain original function 
 	assign( 
 		  받아왔어요 
