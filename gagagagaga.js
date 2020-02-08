@@ -111,9 +111,9 @@ function 범위로뽑기( t, 남은값 ) {
 			) 
 		: {} 
 	} 
-function ForV( o, ... ar ) { 
-	return o instanceof Function ? { toString : q => `${ o( 받아왔어요, ... ar ) }` } : o 
-	} 
+function ForV( o, ... ar ) { return o instanceof Function ? new class { 
+	toString = q => `${ o( 받아왔어요, ... ar ) }` 
+	} : o } 
 
 ///// 
 } // -- initConst() 
