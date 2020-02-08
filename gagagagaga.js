@@ -86,9 +86,14 @@ function 대충( raw, ... ar ) {
 			raw = rawa 
 			} ) 
 		
-		return ( t => this .toString = q => t ) ( String .raw( rawa, ... ara ) ) () 
+		return getsetToString( this, String .raw( rawa, ... ara ) ) 
 		} // -- toString() < 대충() 
 	} // -- 대충() 
+
+function getsetToString( o, t ) { 
+	let F = o .toString = q => t 
+	return F( t ) 
+	} 
 
 function 있는대로만( { raw }, ... ar ) { 
 	let printIndex = -1 
