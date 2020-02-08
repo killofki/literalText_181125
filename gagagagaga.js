@@ -85,7 +85,7 @@ function 있는대로만( { raw }, ... ar ) {
 	return new class { 
 		toString = q => String .raw( { raw }, ( 
 			  printIndex += 1 
-			, ar .map( a => a && a[ printIndex ] || '' ) 
+			, ar .map( a => a ?.[ printIndex ] || '' ) 
 			) ) 
 		sourceFrom = [ raw, ... ar ] 
 		} 
