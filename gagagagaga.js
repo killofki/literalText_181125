@@ -62,14 +62,16 @@ function 대충( raw, ... ar ) {
 			let [ ra, ... aa ] = ttoraw( 
 				  v 
 				, /(?<꾸밈>[\s\S]*?)(?<치환곽>\{\s*(?<치환자>[\s\S]+?)\s*\}|$)/g 
-				, ( traw, tar ) => 
-					( all, rawv, arv, arvv, origin, position, { 꾸밈, 치환곽, 치환자 } ) => ( 
-						  traw .push( 꾸밈 ) 
-						, tar .push( 
-							  치환곽 ? 받아왔어요 ?.[ 치환자 ] || `{${ 치환자 }}` 
-							: '' 
-							) 
+				, ( traw, tar ) => ( 
+						  all, rawv, arv, arvv, origin, position 
+						, { 꾸밈, 치환곽, 치환자 } 
+						) => ( 
+					  traw .push( 꾸밈 ) 
+					, tar .push( 
+						  치환곽 ? 받아왔어요 ?.[ 치환자 ] || `{${ 치환자 }}` 
+						: '' 
 						) 
+					) 
 				) 
 			let arp = ar[ p ] 
 			
