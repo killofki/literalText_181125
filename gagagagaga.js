@@ -62,7 +62,7 @@ function 대충( raw, ... ar ) {
 				, ( traw, tar ) => 
 					( all, rawv, arv, arvv, origin, position, { 꾸밈, 치환곽, 치환자 } ) => ( 
 						  traw .push( 꾸밈 ) 
-						, tar .push( 치환곽 ? 받아왔어요 && 받아왔어요[ 치환자 ] || `{${ 치환자 }}` : '' ) 
+						, tar .push( 치환곽 ? 받아왔어요 ?.[ 치환자 ] || `{${ 치환자 }}` : '' ) 
 						) 
 				) 
 			let arp = ar[ p ] 
