@@ -30,12 +30,12 @@ function 이보게젊은이( 널널한공간, 받아적어, ... 거시기 ) {
 		({ [ 남은값[ i + 1 ] ] : ForV( v ) }) // extract one time 
 		) ) 
 	return `${ ForV( 시작값 ? 받아왔어요[ 시작값 ] : 받아적어, ... 거시기 ) }` 
-	} 
+	} // -- 이보게젊은이() 
 function 대략( ... ar ) { return { toString } 
 	function toString() { // lazy loader with fix value .. 
 		return `${ Object .assign( this, 글자로뽑기( `${ 대충( ... ar ) }` ) ) }` 
 		} 
-	} 
+	} // -- 대략() 
 function 대충( raw, ... ar ) { 
 	return { toString } 
 	
@@ -62,7 +62,7 @@ function 대충( raw, ... ar ) {
 		
 		return ( t => this .toString = q => t ) ( String .raw( rawa, ... ara ) )() 
 		} 
-	} 
+	} // -- 대충() 
 function 있는대로만( { raw }, ... ar ) { 
 	let printIndex = -1 
 	return new class { 
@@ -73,7 +73,7 @@ function 있는대로만( { raw }, ... ar ) {
 				) ) 
 		sourceFrom = [ raw, ... ar ] 
 		} 
-	} 
+	} // -- 있는대로만() 
 function ttoraw( t, regv, regF ) { 
 	let raw = [] 
 	let ar = [] 
@@ -87,7 +87,7 @@ function ttoraw( t, regv, regF ) {
 	raw .raw = raw 
 	raw .length ? ( ar .length = raw .length - 1 ) : raw .push( '' ) 
 	return [ raw, ... ar ] 
-	} 
+	} // -- ttoraw() 
 function 글자로뽑기( t ) { 
 	return 있는대로만( ... ttoraw( t 
 		, /(?<꾸밈>[^[]*)(?<돌돌이곽>\[(?<돌돌이>[^\]]*?)\])?/g 
@@ -96,7 +96,7 @@ function 글자로뽑기( t ) {
 			, ar .push( 돌돌이곽 && 돌돌이 .split( ',' ) ) 
 			) 
 		) ) 
-	} 
+	} // -- 글자로뽑기() 
 function 범위로뽑기( t, 남은값 ) { 
 	let [ raw, ... ar ] = ttoraw( t 
 		, /\s*(?<제목>[^{]*?)\s*(?<내용칸>\{\s*(?<내용>[^}]*?)\s*\}|$)/g 
@@ -110,10 +110,10 @@ function 범위로뽑기( t, 남은값 ) {
 			({ [ raw[ p ] ] : 글자로뽑기( t ) }) ) 
 			) 
 		: {} 
-	} 
+	} // -- 범위로뽑기() 
 function ForV( o, ... ar ) { return o instanceof Function ? new class { 
 	toString = q => `${ o( 받아왔어요, ... ar ) }` 
-	} : o } 
+	} : o } // -- ForV() 
 
 ///// 
 } // -- initConst() 
