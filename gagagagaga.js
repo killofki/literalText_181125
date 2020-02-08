@@ -95,7 +95,11 @@ function ttoraw( t, regv, regF ) {
 	let ar = [] 
 	t .replace( regv, regF( raw, ar ) ) 
 	let rpop, apop 
-	while ( [ rpop = raw .pop(), apop = ar .pop() ] .every( v => ! v ) && raw .length ) { 
+	while ( 
+			[ rpop = raw .pop(), apop = ar .pop() ] 
+			.every( v => ! v ) 
+			&& raw .length 
+			) { 
 		} 
 	  apop ? ( raw .push( rpop, '' ), ar .push ( apop ) ) 
 	: rpop && ( raw .push( rpop ), ar .push ( apop ) ) 
