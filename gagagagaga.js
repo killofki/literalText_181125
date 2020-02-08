@@ -65,13 +65,13 @@ function 대충( raw, ... ar ) {
 	} 
 function 있는대로만( { raw }, ... ar ) { 
 	let printIndex = -1 
-	return { 
-		  toString : q => 
+	return new class { 
+		toString = q => 
 			String .raw( { raw }, ( 
 				  printIndex += 1 
 				, ar .map( a => a && a[ printIndex ] || '' ) 
 				) ) 
-		, sourceFrom : [ raw, ... ar ] 
+		sourceFrom = [ raw, ... ar ] 
 		} 
 	} 
 function ttoraw( t, regv, regF ) { 
