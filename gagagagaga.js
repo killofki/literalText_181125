@@ -55,7 +55,7 @@ function 대충( raw, ... ar ) {
 	
 	function toString() { // lazy loader with fix value .. 
 		var rawa = [], ara = [] 
-		raw .forEach( ( v, p ) => { 
+		for ( let [ p, v ] of raw .entries() ) { 
 			let [ ra, ... aa ] = ttoraw( 
 				  v 
 				, /(?<꾸밈>[\s\S]*?)(?<치환곽>\{\s*(?<치환자>[\s\S]+?)\s*\}|$)/g 
@@ -73,7 +73,7 @@ function 대충( raw, ... ar ) {
 				  rawa .push( '' ) 
 				, ara .push( arp ) 
 				) 
-			} ) 
+			} 
 		ara .pop() // cut about pack 
 		rawa .raw = rawa 
 		
