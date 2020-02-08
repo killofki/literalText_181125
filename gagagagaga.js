@@ -105,7 +105,8 @@ function ttoraw( t, regv, regF ) {
 	: rpop && ( raw .push( rpop ), ar .push ( apop ) ) 
 	
 	raw .raw = raw 
-	raw .length ? ( ar .length = raw .length - 1 ) : raw .push( '' ) 
+	  raw .length ? ( ar .length = raw .length - 1 ) 
+	: raw .push( '' ) 
 	return [ raw, ... ar ] 
 	} // -- ttoraw() 
 function 글자로뽑기( t ) { 
