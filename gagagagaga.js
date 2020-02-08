@@ -86,7 +86,7 @@ function 대충( raw, ... ar ) {
 			raw = rawa 
 			} ) 
 		
-		return ( t => this .toString = q => t ) ( String .raw( rawa, ... ara ) )() 
+		return ( t => this .toString = q => t ) ( String .raw( rawa, ... ara ) ) () 
 		} // -- toString() < 대충() 
 	} // -- 대충() 
 
