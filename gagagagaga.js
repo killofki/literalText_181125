@@ -154,9 +154,9 @@ function 범위로뽑기( t, 남은값 ) {
 			} 
 		) 
 	남은값 .push( raw[ ar .length ] ) 
-	return ar .length ? assign( ... ar .map( ( t, p ) => 
-			({ [ raw[ p ] ] : 글자로뽑기( t ) }) ) 
-			) 
+	return ar .length ? assign( ... ar .map( ( t, p ) => new class { 
+			[ raw[ p ] ] = 글자로뽑기( t ) 
+			} ) ) 
 		: {} 
 	} // -- 범위로뽑기() 
 
