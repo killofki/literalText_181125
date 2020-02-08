@@ -21,7 +21,7 @@ function initConst() {
 	
 	return { 이보게젊은이, 대략, 대충 } 
 
-// functions.. 
+// .. functions .. 
 var 받아왔어요 
 function 이보게젊은이( 널널한공간, 받아적어, ... 거시기 ) { 
 	let 남은값 = [] 
