@@ -38,7 +38,7 @@ function 이보게젊은이( 널널한공간, 받아적어, ... 거시기 ) {
 		  받아왔어요 
 		, ... 거시기 .map( ( v, i ) => new class { 
 			[ 남은값[ i + 1 ] ] = ForV( v ) // extract one time 
-			} 
+			} ) 
 		) 
 	return `${ ForV( 
 		  시작값 ? 받아왔어요[ 시작값 ] : 받아적어 
