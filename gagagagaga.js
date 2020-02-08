@@ -93,7 +93,7 @@ function 대충( raw, ... ar ) {
 function getsetToString( o, t ) { 
 	let F = o .toString = q => t 
 	return F( t ) 
-	} 
+	} // -- getsetToString() 
 
 function 있는대로만( { raw }, ... ar ) { 
 	let printIndex = -1 
