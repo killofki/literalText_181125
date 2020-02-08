@@ -101,6 +101,7 @@ function ttoraw( t, regv, regF ) {
 			&& raw .length 
 			) { 
 		} 
+	
 	  apop ? ( raw .push( rpop, '' ), ar .push ( apop ) ) 
 	: rpop && ( raw .push( rpop ), ar .push ( apop ) ) 
 	
