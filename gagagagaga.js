@@ -48,7 +48,7 @@ function 대략( ... ar ) {
 	
 	function toString() { // lazy loader with fix value .. 
 		return `${ Object .assign( this, 글자로뽑기( `${ 대충( ... ar ) }` ) ) }` 
-		} 
+		} // -- toString() < 대략() 
 	} // -- 대략() 
 function 대충( raw, ... ar ) { 
 	return { toString } 
@@ -56,14 +56,17 @@ function 대충( raw, ... ar ) {
 	function toString() { // lazy loader with fix value .. 
 		var rawa = [], ara = [] 
 		raw .forEach( ( v, p ) => { 
-			let [ ra, ... aa ] = ttoraw( v 
+			let [ ra, ... aa ] = ttoraw( 
+				  v 
 				, /(?<꾸밈>[\s\S]*?)(?<치환곽>\{\s*(?<치환자>[\s\S]+?)\s*\}|$)/g 
-				, ( traw, tar ) => ( all, rawv, arv, arvv, origin, position, { 꾸밈, 치환곽, 치환자 } ) => ( 
-					  traw .push( 꾸밈 ) 
-					, tar .push( 치환곽 ? 받아왔어요 && 받아왔어요[ 치환자 ] || `{${ 치환자 }}` : '' ) 
-					) 
+				, ( traw, tar ) => 
+					( all, rawv, arv, arvv, origin, position, { 꾸밈, 치환곽, 치환자 } ) => ( 
+						  traw .push( 꾸밈 ) 
+						, tar .push( 치환곽 ? 받아왔어요 && 받아왔어요[ 치환자 ] || `{${ 치환자 }}` : '' ) 
+						) 
 				) 
 			let arp = ar[ p ] 
+			
 			rawa .push( ... ra ) 
 			ara .push( ... aa, '' ) // continue with next 
 			arp && ( 
@@ -75,7 +78,7 @@ function 대충( raw, ... ar ) {
 		rawa .raw = rawa 
 		
 		return ( t => this .toString = q => t ) ( String .raw( rawa, ... ara ) )() 
-		} 
+		} // -- toString() < 대충() 
 	} // -- 대충() 
 function 있는대로만( { raw }, ... ar ) { 
 	let printIndex = -1 
