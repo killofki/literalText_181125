@@ -94,6 +94,7 @@ function ttoraw( t, regv, regF ) {
 	let raw = [] 
 	let ar = [] 
 	let rpop, apop 
+	
 	t .replace( regv, regF( raw, ar ) ) 
 	while ( 
 			[ rpop = raw .pop(), apop = ar .pop() ] 
