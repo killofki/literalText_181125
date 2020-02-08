@@ -30,10 +30,9 @@ function 이보게젊은이( 널널한공간, 받아적어, ... 거시기 ) {
 		, ... 널널한공간 .map( t => 범위로뽑기( t, 남은값 ) ) 
 		) 
 	let [ 시작값 ] = 남은값 
-	시작값 && assign( 
-		  받아왔어요 
-		, new class { [ 시작값 ] = 받아적어 } 
-		) // remain original function 
+	시작값 && assign( 받아왔어요, new class { 
+		[ 시작값 ] = 받아적어 
+		} ) // remain original function 
 	assign( 
 		  받아왔어요 
 		, ... 거시기 .map( ( v, i ) => new class { 
