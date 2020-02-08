@@ -97,7 +97,7 @@ function ttoraw( t, regv, regF ) {
 	let rpop, apop 
 	while ( 
 			[ rpop = raw .pop(), apop = ar .pop() ] 
-			.every( v => ! v ) 
+				.every( v => ! v ) 
 			&& raw .length 
 			) { 
 		} 
